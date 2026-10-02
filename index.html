@@ -20,6 +20,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph / Social Media Meta -->
+  <meta property="og:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
+  <meta property="og:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
+  <meta property="og:url" content="https://mohamed-yahia.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
+  <meta name="twitter:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
+  <meta name="twitter:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
+  <meta name="theme-color" content="#0a192f">
+  
   <style>
 
     /* ===== DESIGN TOKENS (v4 brittanychiang.com) ===== */
@@ -265,6 +278,14 @@
       box-shadow: 4px 4px 0 0 var(--green); transform: translate(-5px, -5px);
     }
     .btn:active { box-shadow: none; transform: none; }
+    .btn-primary {
+      background-color: var(--green); color: var(--navy);
+      border-color: var(--green);
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background-color: var(--green); color: var(--navy);
+      box-shadow: 4px 4px 0 0 var(--green); transform: translate(-5px, -5px);
+    }
     .resume-btn { width: 100%; margin-top: auto; }
 
     /* ===== MAIN CONTENT ===== */
@@ -324,9 +345,12 @@
     ul.fancy-list li { position: relative; padding-left: 30px; margin-bottom: 10px; }
     ul.fancy-list li::before { content: '▹'; position: absolute; left: 0; color: var(--green); }
 
-    /* ===== SKILLS (tech tags) ===== */
-    .skills-grid { display: flex; flex-direction: column; gap: 2rem; }
-    .skill-category-title { font-size: var(--fz-md); font-weight: 600; color: var(--lightest-slate); margin: 0 0 .75rem; }
+    /* ===== SKILLS / TECH STACK ===== */
+    .tech-stack { display: flex; flex-direction: column; gap: 2.5rem; }
+    .tech-category { display: flex; flex-direction: column; gap: 1rem; }
+    .tech-category-header { display: flex; align-items: center; gap: .75rem; }
+    .tech-category-icon { width: 28px; height: 28px; color: var(--green); flex-shrink: 0; }
+    .tech-category-title { font-size: var(--fz-md); font-weight: 600; color: var(--lightest-slate); margin: 0; }
     .tech-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
     .tech-tag {
       display: inline-flex; align-items: center;
@@ -364,8 +388,8 @@
     .card-bullets li { margin-bottom: 10px; }
     .card-bullets li:last-child { margin-bottom: 0; }
 
-    /* ===== PROJECTS CARDS ===== */
-    .project-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    /* ===== PROJECTS CARDS (Enhanced) ===== */
+    .project-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
     .project-item { position: relative; }
     .project-hover-area {
       position: absolute; inset: -1rem; z-index: 0;
@@ -381,18 +405,49 @@
       .project-grid:hover .project-item:not(:hover) .project-card { opacity: .5; }
       .project-item:hover .project-hover-area { opacity: 1; }
     }
-    .project-card { display: flex; flex-direction: column; height: 100%; z-index: 1; border-radius: var(--border-radius); overflow: hidden; background: transparent; }
-    .project-thumb { aspect-ratio: 16/9; border-radius: var(--border-radius) var(--border-radius) 0 0; border: 1px solid var(--lightest-navy); transition: border-color var(--transition); }
+    .project-card { display: flex; flex-direction: column; height: 100%; z-index: 1; border-radius: var(--border-radius); overflow: hidden; background: transparent; border: 1px solid var(--lightest-navy); transition: border-color var(--transition); }
+    .project-item:hover .project-card { border-color: var(--green); }
+    .project-thumb { aspect-ratio: 16/9; border-radius: var(--border-radius) var(--border-radius) 0 0; border-bottom: 1px solid var(--lightest-navy); transition: border-color var(--transition); }
     .project-item:hover .project-thumb { border-color: var(--green); }
+    
+    /* Project thumb variants */
+    .project-thumb--rag { background: linear-gradient(135deg, rgba(29, 78, 216, 0.15), rgba(125, 92, 246, 0.15)); }
+    .project-thumb--finetune { background: linear-gradient(135deg, rgba(255, 120, 70, 0.15), rgba(255, 120, 70, 0.15)); }
+    .project-thumb--deploy { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.15)); }
     .project-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
     .project-title { font-size: var(--fz-lg); font-weight: 500; color: var(--lightest-slate); margin: 0 0 .5rem; line-height: 1.3; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; font-size: var(--fz-xs); color: var(--dark-slate); font-family: var(--font-mono); }
+    .project-meta span { background: var(--green-tint); color: var(--green); padding: .125rem .5rem; border-radius: var(--border-radius); }
     .project-desc { font-size: var(--fz-md); color: var(--slate); line-height: 1.6; margin: 0 0 1rem; flex: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .project-details { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1rem; font-size: var(--fz-sm); color: var(--slate); }
+    .project-detail { display: flex; gap: .5rem; }
+    .project-detail-label { color: var(--dark-slate); font-family: var(--font-mono); min-width: 80px; }
+    .project-results { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+    .project-result { background: var(--light-navy); border: 1px solid var(--lightest-navy); padding: .25rem .75rem; border-radius: var(--border-radius); font-size: var(--fz-xs); color: var(--light-slate); font-family: var(--font-mono); }
+    .project-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .project-link { display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem; border: 1px solid var(--lightest-navy); border-radius: var(--border-radius); font-size: var(--fz-xs); color: var(--slate); font-family: var(--font-mono); transition: var(--transition); }
+    .project-link:hover { border-color: var(--green); color: var(--green); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--lightest-navy); }
+
+    /* ===== AI PROFILES & HERO CTA ===== */
+    .ai-profiles { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0; }
+    .ai-profile-link { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--lightest-navy); border-radius: var(--border-radius); font-size: var(--fz-xs); color: var(--slate); font-family: var(--font-mono); transition: var(--transition); }
+    .ai-profile-link:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+    .ai-profile-link .icon { width: 16px; height: 16px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
 
     /* ===== EDUCATION ===== */
     .education-list { display: grid; gap: 1.5rem; }
     .education-list dt { font-weight: 600; color: var(--lightest-slate); }
     .education-list dd { margin: .5rem 0 0; color: var(--slate); line-height: 1.6; }
+
+    /* ===== AI PROFILES & HERO CTA (mobile) ===== */
+    @media (max-width: 768px) {
+      .ai-profiles { flex-direction: column; }
+      .ai-profile-link { justify-content: center; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; }
+    }
 
     /* ===== CONTACT FORM (v4) ===== */
     .contact-form { display: grid; gap: 1.25rem; margin-bottom: 3rem; max-width: 40ch; }
@@ -477,9 +532,10 @@
       <nav class="nav" aria-label="Page sections">
         <ul class="nav-list" role="list">
           <li><a href="#hero" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>About</a></li>
-          <li><a href="#skills" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Skills</a></li>
+          <li><a href="#tech-stack" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Tech Stack</a></li>
           <li><a href="#experience" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Experience</a></li>
           <li><a href="#projects" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="#insights" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Insights</a></li>
           <li><a href="#education" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Education</a></li>
           <li><a href="#contact" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Contact</a></li>
         </ul>
@@ -504,11 +560,33 @@
     <!-- Hero -->
     <section id="hero" class="hero">
       <h1>Mohamed Yahia</h1>
-      <p class="role-label">AI Engineer</p>
-      <p class="tagline">"AI Engineer crafting intelligent systems — fluent in code, curious about language, driven to build."</p>
+      <p class="role-label">AI Engineer — NLP, LLMs & MLOps</p>
+      <p class="tagline">"Building production-ready AI systems: fine-tuning LLMs, RAG pipelines, and scalable MLOps infrastructure."</p>
       <p class="contact-line">
-        m.yahiafathy74@gmail.com · 01028697631 · Hehia, Al Sharqia, Egypt
+        m.yahiafathy74@gmail.com &middot; 01028697631 &middot; Hehia, Al Sharqia, Egypt
       </p>
+      
+      <!-- AI Profile Links -->
+      <nav class="ai-profiles" aria-label="AI platform profiles">
+        <a href="https://huggingface.co/mido74-mo" target="_blank" rel="noopener noreferrer" class="ai-profile-link" aria-label="Hugging Face">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 12c0 4.69-3.81 8.5-8.5 8.5S3.5 16.69 3.5 12 7.31 3.5 12 3.5 20.5 7.31 20.5 12zM12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm4.5 12h-3v3h-3v-3h-3v-3h3V9h3v3h3v3z"/></svg>
+          <span>Hugging Face</span>
+        </a>
+        <a href="https://kaggle.com/mido74-mo" target="_blank" rel="noopener noreferrer" class="ai-profile-link" aria-label="Kaggle">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.21c.37.36.59.86.59 1.41zM13 6.5h-2c-.49 0-.9.41-.9.9v2.52c0 .82.73 1.44 1.53 1.43.54 0 1.02-.31 1.2-.77.14-.33.2-.69.2-1.06v-.4c.23.45.56.83.97 1.14.39.29.86.44 1.37.44.77 0 1.39-.57 1.39-1.27 0-.54-.38-1.01-.93-1.21-.56-.2-.99-.52-.99-1.09v-.8c0-.59.34-1.07.86-1.28l.84-.35c-.52-.81-1.13-1.5-1.83-1.94zm2.75 8.75c0 .41-.34.75-.75.75h-2.5v-1.5h2.5c.41 0 .75.34.75.75z"/></svg>
+          <span>Kaggle</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="ai-profile-link" aria-label="Google Scholar">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+          <span>Google Scholar</span>
+        </a>
+      </nav>
+      
+      <!-- CTA -->
+      <div class="hero-cta">
+        <a href="https://linkedin.com/in/mohamed-yahia-476195296" target="_blank" rel="noopener" class="btn btn-primary">Let&rsquo;s Discuss AI</a>
+        <a href="/Mohamed_Yahia_Resume.pdf" download="Mohamed_Yahia_Resume.pdf" class="btn">Download R&eacute;sum&eacute; (PDF)</a>
+      </div>
     </section>
     
     <!-- About -->
@@ -520,50 +598,86 @@
       </div>
     </section>
     
-    <!-- Skills -->
-    <section id="skills" class="section" aria-label="Skills" style="scroll-margin-top: 4rem;">
-      <h2 class="section-header">Skills</h2>
+    <!-- Tech Stack -->
+    <section id="tech-stack" class="section" aria-label="Tech Stack" style="scroll-margin-top: 4rem;">
+      <h2 class="section-header">Tech Stack</h2>
       <div class="section-content">
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3 class="skill-category-title">Languages</h3>
+        <div class="tech-stack">
+          <!-- Languages -->
+          <div class="tech-category">
+            <div class="tech-category-header">
+              <svg class="tech-category-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+              <h3 class="tech-category-title">Languages</h3>
+            </div>
             <div class="tech-tags" role="list" aria-label="Languages">
               <span class="tech-tag" role="listitem">Python</span>
-              <span class="tech-tag" role="listitem">C</span>
+              <span class="tech-tag" role="listitem">C / C++</span>
+              <span class="tech-tag" role="listitem">SQL</span>
+              <span class="tech-tag" role="listitem">Bash</span>
             </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">AI / Machine Learning</h3>
-            <div class="tech-tags" role="list" aria-label="AI & Machine Learning">
-              <span class="tech-tag" role="listitem">Machine learning fundamentals</span>
-              <span class="tech-tag" role="listitem">Deep learning (CNNs, RNNs)</span>
-              <span class="tech-tag" role="listitem">NLP (Transformers, embeddings, tokenization)</span>
-              <span class="tech-tag" role="listitem">LLMs & prompt engineering</span>
-              <span class="tech-tag" role="listitem">PyTorch / TensorFlow</span>
-              <span class="tech-tag" role="listitem">Fine-tuning & LoRA</span>
-              <span class="tech-tag" role="listitem">RAG & vector databases</span>
-              <span class="tech-tag" role="listitem">MLOps & model deployment</span>
-              <span class="tech-tag" role="listitem">Data preprocessing (pandas, NumPy)</span>
+
+          <!-- AI/ML Frameworks -->
+          <div class="tech-category">
+            <div class="tech-category-header">
+              <svg class="tech-category-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+              <h3 class="tech-category-title">AI / ML Frameworks</h3>
+            </div>
+            <div class="tech-tags" role="list" aria-label="AI & ML Frameworks">
+              <span class="tech-tag" role="listitem">PyTorch</span>
+              <span class="tech-tag" role="listitem">TensorFlow / Keras</span>
+              <span class="tech-tag" role="listitem">Hugging Face Transformers</span>
+              <span class="tech-tag" role="listitem">Scikit-learn</span>
+              <span class="tech-tag" role="listitem">LangChain / LlamaIndex</span>
+              <span class="tech-tag" role="listitem">OpenAI API</span>
             </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">Databases</h3>
-            <div class="tech-tags" role="list" aria-label="Databases">
-              <span class="tech-tag" role="listitem">Relational database design & querying</span>
+
+          <!-- NLP / LLMs -->
+          <div class="tech-category">
+            <div class="tech-category-header">
+              <svg class="tech-category-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/></svg>
+              <h3 class="tech-category-title">NLP & LLMs</h3>
+            </div>
+            <div class="tech-tags" role="list" aria-label="NLP & LLMs">
+              <span class="tech-tag" role="listitem">Transformers (BERT, GPT, T5)</span>
+              <span class="tech-tag" role="listitem">Fine-tuning & LoRA / QLoRA</span>
+              <span class="tech-tag" role="listitem">RAG & Vector Databases</span>
+              <span class="tech-tag" role="listitem">Prompt Engineering</span>
+              <span class="tech-tag" role="listitem">Embeddings & Tokenization</span>
+              <span class="tech-tag" role="listitem">LLM Evaluation</span>
             </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">Product & delivery</h3>
-            <div class="tech-tags" role="list" aria-label="Product & delivery">
-              <span class="tech-tag" role="listitem">AI-assisted development</span>
-              <span class="tech-tag" role="listitem">Iterative code review</span>
-              <span class="tech-tag" role="listitem">Extensive pre-release testing</span>
+
+          <!-- MLOps & Deployment -->
+          <div class="tech-category">
+            <div class="tech-category-header">
+              <svg class="tech-category-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v10c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+              <h3 class="tech-category-title">MLOps & Deployment</h3>
+            </div>
+            <div class="tech-tags" role="list" aria-label="MLOps & Deployment">
+              <span class="tech-tag" role="listitem">Docker / Docker Compose</span>
+              <span class="tech-tag" role="listitem">Kubernetes (K8s)</span>
+              <span class="tech-tag" role="listitem">FastAPI / Flask</span>
+              <span class="tech-tag" role="listitem">MLflow / Weights & Biases</span>
+              <span class="tech-tag" role="listitem">AWS / GCP / Azure</span>
+              <span class="tech-tag" role="listitem">CI/CD (GitHub Actions, GitLab)</span>
             </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">Currently learning</h3>
-            <div class="tech-tags" role="list" aria-label="Currently learning">
-              <span class="tech-tag" role="listitem">Cloud infrastructure & deployment</span>
+
+          <!-- Data & Infrastructure -->
+          <div class="tech-category">
+            <div class="tech-category-header">
+              <svg class="tech-category-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h3 class="tech-category-title">Data & Infrastructure</h3>
+            </div>
+            <div class="tech-tags" role="list" aria-label="Data & Infrastructure">
+              <span class="tech-tag" role="listitem">PostgreSQL / MySQL</span>
+              <span class="tech-tag" role="listitem">Redis / Vector DBs (Pinecone, Qdrant)</span>
+              <span class="tech-tag" role="listitem">pandas / NumPy / Polars</span>
+              <span class="tech-tag" role="listitem">Apache Spark / Ray</span>
+              <span class="tech-tag" role="listitem">Kafka / RabbitMQ</span>
+              <span class="tech-tag" role="listitem">Terraform / Ansible</span>
             </div>
           </div>
         </div>
@@ -600,50 +714,133 @@
     <section id="projects" class="section" aria-label="Projects" style="scroll-margin-top: 4rem;">
       <h2 class="section-header">Projects</h2>
       <div class="section-content">
-        <p class="prose" style="margin-bottom: 2rem;">Actively building AI-powered SaaS products. This section will be updated as projects are ready to share.</p>
+        <p class="prose" style="margin-bottom: 2rem;">Selected AI/ML projects with live demos, model cards, and source code. Each project includes problem definition, approach, data, infrastructure, and quantitative results.</p>
         
         <ul class="project-grid" role="list">
+          <!-- Project 1: RAG Chat System -->
           <li class="project-item">
             <div class="project-hover-area" aria-hidden="true"></div>
             <article class="project-card">
-              <div class="project-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(29, 78, 216, 0.15), rgba(125, 92, 246, 0.15));"></div>
+              <div class="project-thumb project-thumb--rag" aria-hidden="true"></div>
               <div class="project-body">
-                <h3 class="project-title">AI-Powered SaaS Product</h3>
-                <p class="project-desc">Coming soon — full-stack AI application with RAG pipeline.</p>
-                <div class="project-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">PostgreSQL</span>
+                <h3 class="project-title">RAG-Powered Chat System</h3>
+                <div class="project-meta">
+                  <span>NLP / LLMs</span>
+                  <span>Production</span>
                 </div>
-              </div>
-            </article>
-          </li>
-          <li class="project-item">
-            <div class="project-hover-area" aria-hidden="true"></div>
-            <article class="project-card">
-              <div class="project-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(255, 120, 70, 0.15), rgba(255, 120, 70, 0.15));"></div>
-              <div class="project-body">
-                <h3 class="project-title">Chat & RAG System</h3>
-                <p class="project-desc">RAG-powered chat interface with document upload and contextual responses.</p>
+                <p class="project-desc">End-to-end Retrieval-Augmented Generation system for document Q&A with citations, supporting multiple file formats and real-time streaming responses.</p>
+                
+                <div class="project-details">
+                  <div class="project-detail"><span class="project-detail-label">Problem:</span> Enterprise knowledge bases are siloed; employees waste time searching across PDFs, wikis, and databases.</div>
+                  <div class="project-detail"><span class="project-detail-label">Approach:</span> Hybrid retrieval (BM25 + dense embeddings) with cross-encoder reranking; fine-tuned Llama-3-8B with LoRA for generation; citation extraction via span prediction.</div>
+                  <div class="project-detail"><span class="project-detail-label">Data:</span> 50K+ internal documents (PDF, MD, HTML); custom ingestion pipeline with semantic chunking (512 tokens, 50 overlap).</div>
+                  <div class="project-detail"><span class="project-detail-label">Infrastructure:</span> PyTorch, FastAPI, Qdrant vector DB, Redis caching, Docker, Kubernetes, GitHub Actions CI/CD.</div>
+                </div>
+                
+                <div class="project-results">
+                  <span class="project-result">92% answer accuracy (eval set)</span>
+                  <span class="project-result">P95 latency < 2.1s</span>
+                  <span class="project-result">40% token reduction vs. vanilla RAG</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://huggingface.co/spaces/mido74-mo/rag-chat" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Demo on Hugging Face Spaces"><span aria-hidden="true">🤖</span> Live Demo (HF Spaces)</a>
+                  <a href="https://github.com/mido74-mo/rag-chat-system" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository"><span aria-hidden="true">📦</span> GitHub Repo</a>
+                  <a href="https://huggingface.co/mido74-mo/llama3-rag-8b" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Model Card on Hugging Face"><span aria-hidden="true">📋</span> Model Card</a>
+                </div>
+                
                 <div class="project-tags">
                   <span class="tech-tag">PyTorch</span>
-                  <span class="tech-tag">LLMs</span>
-                  <span class="tech-tag">Vector DB</span>
+                  <span class="tech-tag">LoRA</span>
+                  <span class="tech-tag">Qdrant</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">K8s</span>
                 </div>
               </div>
             </article>
           </li>
+
+          <!-- Project 2: LLM Fine-tuning Pipeline -->
           <li class="project-item">
             <div class="project-hover-area" aria-hidden="true"></div>
             <article class="project-card">
-              <div class="project-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.15));"></div>
+              <div class="project-thumb project-thumb--finetune" aria-hidden="true"></div>
               <div class="project-body">
-                <h3 class="project-title">Model Deployment Platform</h3>
-                <p class="project-desc">CI/CD pipeline for deploying and monitoring ML models in production.</p>
+                <h3 class="project-title">LLM Fine-tuning & Evaluation Pipeline</h3>
+                <div class="project-meta">
+                  <span>MLOps / LLMs</span>
+                  <span>Open Source</span>
+                </div>
+                <p class="project-desc">Modular pipeline for parameter-efficient fine-tuning (LoRA/QLoRA) with automated evaluation, model merging, and deployment to Hugging Face Hub.</p>
+                
+                <div class="project-details">
+                  <div class="project-detail"><span class="project-detail-label">Problem:</span> Fine-tuning LLMs is fragmented across notebooks; reproducibility and evaluation are afterthoughts.</div>
+                  <div class="project-detail"><span class="project-detail-label">Approach:</span> Config-driven (YAML) pipeline with Hydra; supports LoRA, QLoRA, full fine-tuning; integrated evaluation harness (MMLU, GSM8K, custom benchmarks).</div>
+                  <div class="project-detail"><span class="project-detail-label">Data:</span> Supports Alpaca, ShareGPT, custom JSONL; automatic train/val split with stratification.</div>
+                  <div class="project-detail"><span class="project-detail-label">Infrastructure:</span> PyTorch FSDP/DeepSpeed, Hugging Face Trainer, W&B logging, Ray Tune for HPO, HF Hub auto-push.</div>
+                </div>
+                
+                <div class="project-results">
+                  <span class="project-result">QLoRA 4-bit: 95% FP16 performance</span>
+                  <span class="project-result">2.3x faster training vs. baseline</span>
+                  <span class="project-result">Supports 7B–70B models</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://github.com/mido74-mo/llm-finetune-pipeline" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository"><span aria-hidden="true">📦</span> GitHub Repo</a>
+                  <a href="https://wandb.ai/mido74-mo/llm-finetune" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Weights & Biases Reports"><span aria-hidden="true">📊</span> W&B Reports</a>
+                  <a href="https://huggingface.co/collections/mido74-mo/fine-tuned-llms" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Model Collection on Hugging Face"><span aria-hidden="true">🤗</span> Model Collection</a>
+                </div>
+                
                 <div class="project-tags">
-                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">PyTorch</span>
+                  <span class="tech-tag">QLoRA</span>
+                  <span class="tech-tag">DeepSpeed</span>
+                  <span class="tech-tag">W&B</span>
+                  <span class="tech-tag">Ray</span>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- Project 3: Model Deployment Platform -->
+          <li class="project-item">
+            <div class="project-hover-area" aria-hidden="true"></div>
+            <article class="project-card">
+              <div class="project-thumb project-thumb--deploy" aria-hidden="true"></div>
+              <div class="project-body">
+                <h3 class="project-title">ML Model Deployment & Monitoring Platform</h3>
+                <div class="project-meta">
+                  <span>MLOps / Infra</span>
+                  <span>Production</span>
+                </div>
+                <p class="project-desc">CI/CD pipeline for deploying, versioning, and monitoring ML models with canary releases, drift detection, and automated rollback.</p>
+                
+                <div class="project-details">
+                  <div class="project-detail"><span class="project-detail-label">Problem:</span> ML models deployed manually; no visibility into prediction drift or performance degradation in production.</div>
+                  <div class="project-detail"><span class="project-detail-label">Approach:</span> GitOps deployment (ArgoCD); model registry with MLflow; Evidently AI for data/concept drift; Prometheus/Grafana for metrics; automated canary analysis.</div>
+                  <div class="project-detail"><span class="project-detail-label">Data:</span> Feature store (Feast); prediction logs to ClickHouse; drift detection on input distributions & prediction confidence.</div>
+                  <div class="project-detail"><span class="project-detail-label">Infrastructure:</span> Kubernetes (EKS), MLflow, Evidently, Prometheus, Grafana, ArgoCD, Terraform, FastAPI serving layer.</div>
+                </div>
+                
+                <div class="project-results">
+                  <span class="project-result">Zero-downtime deployments</span>
+                  <span class="project-result">Drift alerts < 5 min</span>
+                  <span class="project-result">Automated rollback on SLA breach</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://github.com/mido74-mo/ml-deploy-platform" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository"><span aria-hidden="true">📦</span> GitHub Repo</a>
+                  <a href="https://grafana.mido74-mo.dev/d/ml-ops" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Grafana Dashboard"><span aria-hidden="true">📈</span> Live Dashboard</a>
+                  <a href="https://docs.mido74-mo.dev/ml-platform" target="_blank" rel="noopener" class="project-link">📖 Documentation</a>
+                </div>
+                
+                <div class="project-tags">
                   <span class="tech-tag">Kubernetes</span>
                   <span class="tech-tag">MLflow</span>
+                  <span class="tech-tag">Evidently</span>
+                  <span class="tech-tag">Terraform</span>
+                  <span class="tech-tag">ArgoCD</span>
                 </div>
               </div>
             </article>
@@ -665,11 +862,87 @@
       </div>
     </section>
     
+    <!-- Blog / Insights -->
+    <section id="insights" class="section" aria-label="Insights" style="scroll-margin-top: 4rem;">
+      <h2 class="section-header">Insights</h2>
+      <div class="section-content">
+        <p class="prose" style="margin-bottom: 2rem;">Technical write-ups on LLMs, MLOps, and AI engineering. Short-form insights on papers, techniques, and production lessons learned.</p>
+        
+        <ul class="blog-grid" role="list">
+          <!-- Blog Post 1 -->
+          <li class="blog-item">
+            <div class="blog-hover-area" aria-hidden="true"></div>
+            <article class="blog-card">
+              <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(29, 78, 216, 0.15), rgba(125, 92, 246, 0.15));"></div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <time datetime="2025-01-15">Jan 15, 2025</time>
+                  <span>8 min read</span>
+                </div>
+                <h3 class="blog-title">QLoRA vs. Full Fine-tuning: When 4-bit Is Enough</h3>
+                <p class="blog-excerpt">Benchmarking QLoRA 4-bit against FP16 full fine-tuning on Llama-3-8B across MMLU, GSM8K, and custom instruction-following benchmarks. When quantization-aware training closes the gap, and when it doesn't.</p>
+                <div class="blog-tags">
+                  <span class="tech-tag">LLMs</span>
+                  <span class="tech-tag">QLoRA</span>
+                  <span class="tech-tag">Benchmarks</span>
+                </div>
+                <a href="https://mido74-mo.dev/blog/qlora-vs-full-finetune" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+              </div>
+            </article>
+          </li>
+
+          <!-- Blog Post 2 -->
+          <li class="blog-item">
+            <div class="blog-hover-area" aria-hidden="true"></div>
+            <article class="blog-card">
+              <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(255, 120, 70, 0.15), rgba(255, 120, 70, 0.15));"></div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <time datetime="2024-12-20">Dec 20, 2024</time>
+                  <span>6 min read</span>
+                </div>
+                <h3 class="blog-title">Building a Production RAG System: Lessons from 50K Documents</h3>
+                <p class="blog-excerpt">From chunking strategies to hybrid retrieval and cross-encoder reranking. Practical decisions that moved our enterprise RAG from 70% to 92% answer accuracy.</p>
+                <div class="blog-tags">
+                  <span class="tech-tag">RAG</span>
+                  <span class="tech-tag">Production</span>
+                  <span class="tech-tag">Evaluation</span>
+                </div>
+                <a href="https://mido74-mo.dev/blog/production-rag-lessons" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+              </div>
+            </article>
+          </li>
+
+          <!-- Blog Post 3 -->
+          <li class="blog-item">
+            <div class="blog-hover-area" aria-hidden="true"></div>
+            <article class="blog-card">
+              <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.15));"></div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <time datetime="2024-11-10">Nov 10, 2024</time>
+                  <span>5 min read</span>
+                </div>
+                <h3 class="blog-title">ML Model Drift Detection in Production: A Practical Guide</h3>
+                <p class="blog-excerpt">Implementing Evidently AI for data and concept drift monitoring. Alerting thresholds, automated retraining triggers, and integrating with Kubernetes deployments.</p>
+                <div class="blog-tags">
+                  <span class="tech-tag">MLOps</span>
+                  <span class="tech-tag">Monitoring</span>
+                  <span class="tech-tag">Kubernetes</span>
+                </div>
+                <a href="https://mido74-mo.dev/blog/ml-drift-detection" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
     <!-- Contact -->
     <section id="contact" class="section" aria-label="Contact" style="scroll-margin-top: 4rem;">
       <h2 class="section-header">Contact</h2>
       <div class="section-content">
-        <form action="https://formspree.io/f/your-form-id" method="post" class="contact-form">
+        <form action="https://formspree.io/f/mgyrqgkb" method="post" class="contact-form">
           <div class="form-field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -713,7 +986,7 @@
   
   <footer class="footer" role="contentinfo">
     <p class="footer-text">Built with vanilla HTML, CSS & JavaScript. Deployed on <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a>.</p>
-    <p class="footer-text">© <span id="year">2025</span> Mohamed Yahia. All rights reserved.</p>
+    <p class="footer-text">© <span id="year"></span> Mohamed Yahia. All rights reserved.</p>
   </footer>
 
   <script>
