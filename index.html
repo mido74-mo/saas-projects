@@ -207,7 +207,8 @@
       overflow-y: auto;
     }
     @media (max-width: 1023px) {
-      .header { position: static; width: 100%; min-height: auto; border-right: none; border-bottom: 1px solid var(--lightest-navy); padding: var(--header-padding-mobile); }
+      .page-shell { flex-direction: column; }
+      .header { position: static; width: 100%; min-height: auto; flex: 0 0 auto; border-right: none; border-bottom: 1px solid var(--lightest-navy); padding: var(--header-padding-mobile); overflow-y: visible; }
     }
     .header-inner { display: flex; flex-direction: column; height: 100%; }
     .theme-toggle-wrapper {
