@@ -57,11 +57,12 @@
       --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
       --hamburger-width: 30px;
       /* Layout variables (v4) */
-      --header-width: 30%;
-      --header-padding: 3rem;
-      --content-width: 70%;
+      --header-width: 28%;
+      --header-padding: 2.5rem;
+      --header-padding-mobile: 2rem 1.5rem;
+      --content-width: 72%;
       --container-max: 1000px;
-      --content-padding: 4rem;
+      --content-padding: 3rem;
     }
 
     /* Light theme (v4) */
@@ -189,7 +190,7 @@
       overflow-y: auto;
     }
     @media (max-width: 1023px) {
-      .header { position: static; width: 100%; min-height: auto; border-right: none; border-bottom: 1px solid var(--lightest-navy); }
+      .header { position: static; width: 100%; min-height: auto; border-right: none; border-bottom: 1px solid var(--lightest-navy); padding: var(--header-padding-mobile); }
     }
     .header-inner { display: flex; flex-direction: column; height: 100%; }
     .theme-toggle-wrapper {
@@ -274,20 +275,20 @@
       padding: var(--content-padding) var(--content-padding) 4rem;
     }
     @media (max-width: 1023px) {
-      .content { width: 100%; margin-left: 0; padding: 2rem 1.5rem 4rem; }
+      .content { width: 100%; margin-left: 0; padding: 2rem 1.5rem 3rem; }
     }
 
     /* ===== HERO ===== */
-    .hero { margin-bottom: 4rem; }
-    .hero h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 600; margin: 0 0 10px 0; color: var(--lightest-slate); line-height: 1.1; }
-    .role-label { color: var(--green); font-size: clamp(40px, 8vw, 60px); font-weight: 600; margin: 0 0 20px 0; font-family: var(--font-mono); }
-    .tagline { color: var(--slate); font-size: clamp(var(--fz-md), 3vw, var(--fz-xl)); font-family: var(--font-mono); font-weight: 400; margin: 0 0 20px 0; line-height: 1.5; }
-    .contact-line { color: var(--slate); font-size: var(--fz-sm); margin: 0 0 1.5rem; }
+    .hero { margin-bottom: 2rem; }
+    .hero h1 { font-size: clamp(32px, 6vw, 60px); font-weight: 600; margin: 0 0 8px 0; color: var(--lightest-slate); line-height: 1.1; }
+    .role-label { color: var(--green); font-size: clamp(28px, 5vw, 48px); font-weight: 600; margin: 0 0 12px 0; font-family: var(--font-mono); }
+    .tagline { color: var(--slate); font-size: clamp(var(--fz-sm), 2.5vw, var(--fz-lg)); font-family: var(--font-mono); font-weight: 400; margin: 0 0 12px 0; line-height: 1.5; }
+    .contact-line { color: var(--slate); font-size: var(--fz-xs); margin: 0 0 1rem; }
 
     /* ===== SECTIONS (v4 numbered headings) ===== */
-    .section { margin: 0 auto; padding: 100px 0; max-width: 1000px; }
-    @media (max-width: 768px) { .section { padding: 80px 0; } }
-    @media (max-width: 480px) { .section { padding: 60px 0; } }
+    .section { margin: 0 auto; padding: 80px 0; max-width: 1000px; }
+    @media (max-width: 768px) { .section { padding: 60px 0; } }
+    @media (max-width: 480px) { .section { padding: 50px 0; } }
 
     .section-header {
       position: relative; display: flex; align-items: center;
@@ -431,12 +432,12 @@
       .resume-btn { width: auto; }
     }
     @media (max-width: 768px) {
-      .hero h1 { font-size: clamp(32px, 8vw, 60px); }
-      .role-label { font-size: clamp(32px, 8vw, 50px); }
+      .hero h1 { font-size: clamp(32px, 6vw, 60px); }
+      .role-label { font-size: clamp(32px, 5vw, 50px); }
     }
     @media (max-width: 480px) {
-      .hero h1 { font-size: clamp(28px, 8vw, 50px); }
-      .role-label { font-size: clamp(28px, 8vw, 40px); }
+      .hero h1 { font-size: clamp(28px, 6vw, 50px); }
+      .role-label { font-size: clamp(28px, 5vw, 40px); }
       .tagline { font-size: var(--fz-sm); }
     }
   </style>
