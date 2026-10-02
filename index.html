@@ -6,32 +6,26 @@
   <meta name="description" content="Mohamed Yahia — AI Engineer crafting intelligent systems. Portfolio, skills, experience, and contact.">
   <title>Mohamed Yahia — AI Engineer</title>
   
-  <!-- Open Graph / Social -->
+  <!-- Open Graph / Social Media Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamed-yahia-portfolio.vercel.app/">
-  <meta property="og:title" content="Mohamed Yahia — AI Engineer">
-  <meta property="og:description" content="AI Engineer crafting intelligent systems — fluent in code, curious about language, driven to build.">
-  <meta property="og:image" content="https://mohamed-yahia-portfolio.vercel.app/og.png">
+  <meta property="og:url" content="https://mohamed-yahia.vercel.app/">
+  <meta property="og:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
+  <meta property="og:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
+  <meta property="og:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mohamed Yahia - AI Engineer portfolio showing NLP, LLMs & MLOps expertise">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mohamed Yahia — AI Engineer">
-  <meta name="twitter:description" content="AI Engineer crafting intelligent systems — fluent in code, curious about language, driven to build.">
+  <meta name="twitter:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
+  <meta name="twitter:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
+  <meta name="twitter:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
+  <meta name="twitter:image:alt" content="Mohamed Yahia - AI Engineer portfolio">
+  <meta name="theme-color" content="#0a192f">
   
   <!-- Fonts (Inter via Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Open Graph / Social Media Meta -->
-  <meta property="og:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
-  <meta property="og:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
-  <meta property="og:url" content="https://mohamed-yahia.vercel.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mohamed Yahia | AI Engineer — NLP, LLMs & MLOps">
-  <meta name="twitter:description" content="AI Engineer specializing in NLP, Generative Models & MLOps. Building scalable AI systems with PyTorch, RAG pipelines, and production ML infrastructure.">
-  <meta name="twitter:image" content="https://mohamed-yahia.vercel.app/og-image.webp">
-  <meta name="theme-color" content="#0a192f">
   
   <style>
 
@@ -71,11 +65,11 @@
       --hamburger-width: 30px;
       /* Layout variables (v4) */
       --header-width: 28%;
-      --header-padding: 2.5rem;
-      --header-padding-mobile: 2rem 1.5rem;
+      --header-padding: 1.5rem;
+      --header-padding-mobile: 1.5rem 1rem;
       --content-width: 72%;
       --container-max: 1000px;
-      --content-padding: 3rem;
+      --content-padding: 2.5rem;
     }
 
     /* Light theme (v4) */
@@ -98,7 +92,7 @@
 
     /* ===== BASE ===== */
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-scroll-behavior: smooth; }
+    /* scroll-behavior: smooth handled by JS for better control */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -119,7 +113,7 @@
     body {
       margin: 0;
       width: 100%;
-      min-height: 100%;
+      min-height: 100vh;
       overflow-x: hidden;
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
@@ -129,6 +123,14 @@
       font-size: var(--fz-xl);
       line-height: 1.3;
     }
+
+    .page-shell {
+      display: flex;
+      align-items: flex-start;
+      min-height: calc(100vh - 140px);
+      width: 100%;
+    }
+
     @media (max-width: 480px) { body { font-size: var(--fz-lg); } }
 
     ::selection { background-color: var(--lightest-navy); color: var(--lightest-slate); }
@@ -195,8 +197,9 @@
 
     /* ===== HEADER (sticky sidebar) ===== */
     .header {
-      position: sticky; top: 0; z-index: 10;
+      position: sticky; top: 0; z-index: 20;
       width: var(--header-width); min-height: 100vh;
+      flex: 0 0 var(--header-width);
       padding: var(--header-padding);
       border-right: 1px solid var(--lightest-navy);
       background: var(--navy);
@@ -224,12 +227,12 @@
       border-color: var(--green);
       background: var(--light-navy);
     }
-    .identity { margin-bottom: 3rem; }
+    .identity { margin-bottom: 1.5rem; }
     .name { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; line-height: 1.1; margin: 0 0 .5rem; color: var(--lightest-slate); }
     .title { font-size: 1rem; font-weight: 500; color: var(--green); margin: 0; font-family: var(--font-mono); }
 
     /* ===== NAVIGATION (v4 numbered) ===== */
-    .nav { margin-bottom: 3rem; counter-reset: section; }
+    .nav { margin-bottom: 1.5rem; counter-reset: section; }
     .nav-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .75rem; }
     .nav-link {
       position: relative; display: flex; align-items: center; gap: .75rem;
@@ -257,7 +260,7 @@
     .nav-link:hover, .nav-link:focus-visible, .nav-link.active { color: var(--green); }
 
     /* ===== SOCIAL LINKS (header) ===== */
-    .social { display: flex; gap: 1rem; margin-bottom: 2rem; }
+    .social { display: flex; gap: 1rem; margin-bottom: 1rem; }
     .social-link { color: var(--slate); transition: color var(--transition), transform var(--transition); display: flex; }
     .social-link:hover, .social-link:focus-visible { color: var(--green); transform: translateY(-3px); }
     .social-link:focus-visible { outline: none; }
@@ -290,30 +293,34 @@
 
     /* ===== MAIN CONTENT ===== */
     .content {
+      position: relative;
+      z-index: 1;
+      flex: 1 1 auto;
       width: var(--content-width);
       max-width: var(--container-max);
-      margin-left: auto;
-      padding: var(--content-padding) var(--content-padding) 4rem;
+      margin-left: clamp(0.75rem, 2vw, 2rem);
+      margin-right: auto;
+      padding: 0.5rem var(--content-padding) 3rem;
     }
     @media (max-width: 1023px) {
-      .content { width: 100%; margin-left: 0; padding: 2rem 1.5rem 3rem; }
+      .content { width: 100%; margin-left: 0; margin-right: 0; padding: 1.5rem 1.5rem 2rem; }
     }
 
     /* ===== HERO ===== */
-    .hero { margin-bottom: 2rem; }
+    .hero { margin-top: 0.75rem; margin-bottom: 1rem; }
     .hero h1 { font-size: clamp(32px, 6vw, 60px); font-weight: 600; margin: 0 0 8px 0; color: var(--lightest-slate); line-height: 1.1; }
     .role-label { color: var(--green); font-size: clamp(28px, 5vw, 48px); font-weight: 600; margin: 0 0 12px 0; font-family: var(--font-mono); }
     .tagline { color: var(--slate); font-size: clamp(var(--fz-sm), 2.5vw, var(--fz-lg)); font-family: var(--font-mono); font-weight: 400; margin: 0 0 12px 0; line-height: 1.5; }
     .contact-line { color: var(--slate); font-size: var(--fz-xs); margin: 0 0 1rem; }
 
     /* ===== SECTIONS (v4 numbered headings) ===== */
-    .section { margin: 0 auto; padding: 80px 0; max-width: 1000px; }
-    @media (max-width: 768px) { .section { padding: 60px 0; } }
-    @media (max-width: 480px) { .section { padding: 50px 0; } }
+    .section { margin: 0 auto; padding: 28px 0; max-width: 1000px; }
+    @media (max-width: 768px) { .section { padding: 24px 0; } }
+    @media (max-width: 480px) { .section { padding: 20px 0; } }
 
     .section-header {
       position: relative; display: flex; align-items: center;
-      margin: 10px 0 40px; width: 100%;
+      margin: 8px 0 24px; width: 100%;
       font-size: clamp(26px, 5vw, var(--fz-heading));
       white-space: nowrap; color: var(--lightest-slate); font-weight: 600;
     }
@@ -332,7 +339,7 @@
     @media (max-width: 768px) { .section-header::after { width: 100%; } }
     @media (max-width: 600px) { .section-header::after { margin-left: 10px; } }
 
-    .section-content { max-width: 1000px; }
+    .section-content { max-width: 1000px; margin: 0 auto; }
 
     /* ===== PROSE ===== */
     .prose { color: var(--slate); line-height: 1.6; margin: 0 0 15px 0; }
@@ -362,7 +369,7 @@
 
     /* ===== EXPERIENCE CARDS ===== */
     .card-list { display: grid; gap: 1.5rem; }
-    .card-item { position: relative; }
+    .card-item { position: relative; isolation: isolate; }
     .card-hover-area {
       position: absolute; inset: -1rem; z-index: 0;
       opacity: 0; pointer-events: none;
@@ -374,10 +381,16 @@
     }
     @media (min-width: 1024px) {
       .card-hover-area { display: block; }
-      .card-list:hover .card-item:not(:hover) .card { opacity: .5; }
+      .card-list:hover .card-item:not(:hover) .card {
+        filter: saturate(0.75) brightness(0.9);
+      }
       .card-item:hover .card-hover-area { opacity: 1; }
     }
-    .card { position: relative; z-index: 1; background: transparent; border-radius: var(--border-radius); }
+    .card {
+      position: relative; z-index: 1; background: transparent; border-radius: var(--border-radius);
+      transition: filter var(--transition), transform var(--transition);
+    }
+    .card-item:hover .card { transform: translateY(-2px); }
     .card-header { margin-bottom: 1rem; }
     .card-meta { display: flex; gap: 1rem; margin-bottom: .5rem; }
     .card-date { font-size: var(--fz-xs); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--dark-slate); font-family: var(--font-mono); }
@@ -390,7 +403,7 @@
 
     /* ===== PROJECTS CARDS (Enhanced) ===== */
     .project-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-    .project-item { position: relative; }
+    .project-item { position: relative; isolation: isolate; }
     .project-hover-area {
       position: absolute; inset: -1rem; z-index: 0;
       opacity: 0; pointer-events: none;
@@ -402,11 +415,22 @@
     }
     @media (min-width: 1024px) {
       .project-hover-area { display: block; }
-      .project-grid:hover .project-item:not(:hover) .project-card { opacity: .5; }
+      .project-grid:hover .project-item:not(:hover) .project-card {
+        filter: saturate(0.75) brightness(0.9);
+      }
       .project-item:hover .project-hover-area { opacity: 1; }
     }
-    .project-card { display: flex; flex-direction: column; height: 100%; z-index: 1; border-radius: var(--border-radius); overflow: hidden; background: transparent; border: 1px solid var(--lightest-navy); transition: border-color var(--transition); }
-    .project-item:hover .project-card { border-color: var(--green); }
+    .project-card {
+      display: flex; flex-direction: column; height: 100%; z-index: 1; border-radius: var(--border-radius);
+      overflow: hidden; background: rgba(15, 23, 42, 0.78); border: 1px solid var(--lightest-navy);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      transition: border-color var(--transition), transform var(--transition), filter var(--transition), background var(--transition);
+    }
+    .project-item:hover .project-card {
+      background: rgba(17, 34, 64, 0.92);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
     .project-thumb { aspect-ratio: 16/9; border-radius: var(--border-radius) var(--border-radius) 0 0; border-bottom: 1px solid var(--lightest-navy); transition: border-color var(--transition); }
     .project-item:hover .project-thumb { border-color: var(--green); }
     
@@ -461,18 +485,21 @@
     .form-field input:focus-visible, .form-field textarea:focus-visible {
       outline: none; border-color: var(--green); box-shadow: 0 0 0 3px var(--green-tint);
     }
-    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-link {
-      display: flex; align-items: center; gap: .75rem;
-      color: var(--slate); text-decoration: none; font-size: var(--fz-md); font-weight: 500;
-      transition: color var(--transition), gap var(--transition), transform var(--transition);
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--dark-slate); opacity: 0.7; }
+
+    .contact-links {
+      display: grid; gap: .75rem; max-width: 40ch;
     }
-    .contact-link:hover, .contact-link:focus-visible { color: var(--green); gap: 1rem; transform: translateY(-3px); }
-    .contact-link:focus-visible { outline: none; }
-    .contact-link .icon { width: 20px; height: 20px; flex-shrink: 0; transition: transform var(--transition); }
-    .contact-link:hover .icon, .contact-link:focus-visible .icon { transform: translateY(-3px); }
-    .contact-link .link-arrow { width: 16px; height: 16px; margin-left: auto; color: var(--dark-slate); transition: transform var(--transition), color var(--transition); }
-    .contact-link:hover .link-arrow, .contact-link:focus-visible .link-arrow { transform: translate(2px, -2px); color: var(--green); }
+    .contact-link {
+      display: flex; align-items: center; gap: .75rem; padding: .75rem 1rem;
+      border: 1px solid var(--lightest-navy); border-radius: var(--border-radius);
+      color: var(--slate); background: transparent; transition: var(--transition);
+    }
+    .contact-link:hover, .contact-link:focus-visible {
+      border-color: var(--green); color: var(--green); transform: translateY(-2px);
+    }
+    .contact-link .icon { width: 18px; height: 18px; flex-shrink: 0; }
+    .contact-link .link-arrow { margin-left: auto; width: 16px; height: 16px; }
 
     /* ===== FOOTER (v4) ===== */
     .footer { padding: 2rem 0; border-top: 1px solid var(--lightest-navy); text-align: center; }
@@ -480,10 +507,49 @@
     .footer-text a { color: var(--green); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
     .footer-text a:hover { border-color: var(--green); }
 
+    /* ===== BLOG / INSIGHTS CARDS ===== */
+    .blog-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    .blog-item { position: relative; isolation: isolate; }
+    .blog-hover-area {
+      position: absolute; inset: -1rem; z-index: 0;
+      opacity: 0; pointer-events: none;
+      background: var(--light-navy);
+      box-shadow: inset 0 1px 0 0 var(--lightest-navy), 0 10px 30px -10px var(--navy-shadow);
+      border-radius: var(--border-radius);
+      transition: opacity var(--transition), box-shadow var(--transition);
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .blog-hover-area { display: block; }
+      .blog-grid:hover .blog-item:not(:hover) .blog-card {
+        filter: saturate(0.75) brightness(0.9);
+      }
+      .blog-item:hover .blog-hover-area { opacity: 1; }
+    }
+    .blog-card {
+      display: flex; flex-direction: column; height: 100%; z-index: 1; border-radius: var(--border-radius);
+      overflow: hidden; background: rgba(15, 23, 42, 0.78); border: 1px solid var(--lightest-navy);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      transition: border-color var(--transition), transform var(--transition), filter var(--transition), background var(--transition);
+    }
+    .blog-item:hover .blog-card {
+      background: rgba(17, 34, 64, 0.92);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+    .blog-thumb { aspect-ratio: 16/9; border-radius: var(--border-radius) var(--border-radius) 0 0; border-bottom: 1px solid var(--lightest-navy); }
+    .blog-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .blog-meta { display: flex; gap: 1rem; margin-bottom: .75rem; font-size: var(--fz-xs); color: var(--dark-slate); font-family: var(--font-mono); }
+    .blog-title { font-size: var(--fz-lg); font-weight: 500; color: var(--lightest-slate); margin: 0 0 .5rem; line-height: 1.3; }
+    .blog-excerpt { font-size: var(--fz-md); color: var(--slate); line-height: 1.6; margin: 0 0 1rem; flex: 1; }
+    .blog-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+    .blog-link { display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem; border: 1px solid var(--lightest-navy); border-radius: var(--border-radius); font-size: var(--fz-xs); color: var(--slate); font-family: var(--font-mono); transition: var(--transition); }
+    .blog-link:hover { border-color: var(--green); color: var(--green); }
+
     /* ===== MOBILE ADJUSTMENTS ===== */
     @media (max-width: 1023px) {
       .header-inner { padding-bottom: 1rem; }
-      .social { margin-bottom: 1.5rem; }
+      .social { margin-bottom: 1rem; }
       .resume-btn { width: auto; }
     }
     @media (max-width: 768px) {
@@ -494,6 +560,13 @@
       .hero h1 { font-size: clamp(28px, 6vw, 50px); }
       .role-label { font-size: clamp(28px, 5vw, 40px); }
       .tagline { font-size: var(--fz-sm); }
+      .section-header::after { width: 100%; margin-left: 10px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .section-header { font-size: clamp(22px, 5vw, 28px); }
+      .section-header::after { margin-left: 10px; }
     }
   </style>
   
@@ -510,52 +583,53 @@
     <div class="spotlight br" style="background: radial-gradient(600px circle at 100% 100%, rgba(255, 120, 70, 0.15), transparent 80%);"></div>
   </div>
 
-  <!-- Header (sticky) -->
-  <header class="header" role="banner">
-    <nav class="header-inner" aria-label="Main navigation">
-      
-      <!-- Theme toggle (top-right) -->
-      <div class="theme-toggle-wrapper">
-        <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false"><span aria-hidden="true">🌙</span><span class="sr-only">Toggle theme</span></button>
-      </div>
-      
-      <!-- Skip link -->
-      <a href="#content" class="skip-link">Skip to Content</a>
-      
-      <!-- Identity -->
-      <div class="identity">
-        <h1 class="name">Mohamed Yahia</h1>
-        <p class="title">AI Engineer</p>
-      </div>
-      
-      <!-- Navigation -->
-      <nav class="nav" aria-label="Page sections">
-        <ul class="nav-list" role="list">
-          <li><a href="#hero" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>About</a></li>
-          <li><a href="#tech-stack" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Tech Stack</a></li>
-          <li><a href="#experience" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Experience</a></li>
-          <li><a href="#projects" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Projects</a></li>
-          <li><a href="#insights" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Insights</a></li>
-          <li><a href="#education" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Education</a></li>
-          <li><a href="#contact" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Contact</a></li>
-        </ul>
+  <div class="page-shell">
+    <!-- Header (sticky) -->
+    <header class="header" role="banner">
+      <nav class="header-inner" aria-label="Main navigation">
+        
+        <!-- Theme toggle (top-right) -->
+        <div class="theme-toggle-wrapper">
+          <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false"><span aria-hidden="true">🌙</span><span class="sr-only">Toggle theme</span></button>
+        </div>
+        
+        <!-- Skip link -->
+        <a href="#content" class="skip-link">Skip to Content</a>
+        
+        <!-- Identity -->
+        <div class="identity">
+          <h1 class="name">Mohamed Yahia</h1>
+          <p class="title">AI Engineer</p>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Page sections">
+          <ul class="nav-list" role="list">
+            <li><a href="#about" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>About</a></li>
+            <li><a href="#tech-stack" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Tech Stack</a></li>
+            <li><a href="#experience" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Experience</a></li>
+            <li><a href="#projects" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Projects</a></li>
+            <li><a href="#insights" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Insights</a></li>
+            <li><a href="#education" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Education</a></li>
+            <li><a href="#contact" class="nav-link"><span class="nav-indicator" aria-hidden="true"></span>Contact</a></li>
+          </ul>
+        </nav>
+        
+        <!-- Social links -->
+        <nav class="social" aria-label="Social links">
+          <a href="mailto:m.yahiafathy74@gmail.com" class="social-link" aria-label="Email"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 4.75A2.75 2.75 0 0 1 2.75 2h18.5A2.75 2.75 0 0 1 24 4.75v14.5A2.75 2.75 0 0 1 21.25 22H2.75A2.75 2.75 0 0 1 0 19.25V4.75Zm2.75-.25a.75.75 0 0 0-.75.75v.25l9.25 6.5a1.25 1.25 0 0 0 1.5 0l9.25-6.5v-.25a.75.75 0 0 0-.75-.75H2.75Zm18.5 3.18-8.86 6.23a2.75 2.75 0 0 1-3.28 0L2.75 7.68v11.57c0 .41.34.75.75.75h18.5a.75.75 0 0 0 .75-.75V7.68Z"/></svg><span class="sr-only">Email</span></a>
+          <a href="https://linkedin.com/in/mohamed-yahia-476195296" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.85 9.95h2.18v8.05H5.85zm3.62 0h2.09v1.1h.03c.29-.56 1-1.14 2.06-1.14 2.2 0 2.6 1.45 2.6 3.34v6.75h-2.18v-6.3c0-1.5-.03-3.42-2.09-3.42-2.1 0-2.42 1.63-2.42 3.32v6.4H9.47V9.95Z"/></svg><span class="sr-only">LinkedIn</span></a>
+          <a href="https://github.com/mido74-mo" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.49.99.11-.78.42-1.31.76-1.61-2.67-.31-5.47-.9-5.47-5.06 0-1.12.39-2.03 1.03-2.75-.1-.32-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.28 9.28 0 0 1 12 6.84c.85 0 1.71.11 2.51.33 1.9-1.3 2.74-1.03 2.74-1.03.55 1.41.2 2.39.1 2.71.64.72 1.03 1.63 1.03 2.75 0 4.17-2.81 4.74-5.49 5.05.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3Z"/></svg><span class="sr-only">GitHub</span></a>
+          <a href="https://x.com/Mohamed_4_Yahia" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.5h3.66l-8.02 9.17L24 22.5h-7.3l-5.71-8.35L4.6 22.5H.94l8.59-9.82L0 1.5h7.47l5.17 7.56L18.9 1.5Zm-1.28 18.7h2.03L7.44 3.08H5.31l12.31 17.12Z"/></svg><span class="sr-only">X / Twitter</span></a>
+        </nav>
+        
+        <!-- Resume download -->
+        <a href="/Mohamed_Yahia_Resume.pdf" download="Mohamed_Yahia_Resume.pdf" class="btn resume-btn">Download résumé (PDF)</a>
       </nav>
-      
-      <!-- Social links -->
-      <nav class="social" aria-label="Social links">
-        <a href="mailto:m.yahiafathy74@gmail.com" class="social-link" aria-label="Email"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12.713l11.99-7.713v14H0L12 12.713zm0 1.594L0 16.287V6l12 7.307 12-7.307v10.287z"/></svg><span class="sr-only">Email</span></a>
-        <a href="https://linkedin.com/in/mohamed-yahia-476195296" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11.75 20h-3.25v-10h3.25v10zm-1.5-11.5c-1.029 0-1.857-.827-1.857-1.857s.827-1.857 1.857-1.857 1.857.827 1.857 1.857-.827 1.857-1.857 1.857zm13.25 11.5h-3.25v-4.5c0-1.074-.021-2.45-1.493-2.45-1.494 0-1.725 1.164-1.725 2.425v4.525h-3.25v-10h3.113v1.327h.043c.437-.829 1.503-1.694 3.097-1.694 3.321 0 3.931 2.184 3.931 5.025v6.842z"/></svg><span class="sr-only">LinkedIn</span></a>
-        <a href="https://github.com/mido74-mo" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.801 8.205 11.387.6.113.82-.265.82-.589 0-.293-.01-1.251-.016-2.26-3.338.737-4.044-1.615-4.044-1.615-.546-1.394-1.333-1.764-1.333-1.764-1.096-.757.085-.741.085-.741 1.215.088 1.85 1.253 1.85 1.253 1.076 1.843 2.817 1.313 3.505.996.107-.786.425-1.313.77-1.615-2.685-.308-5.51-.308-5.51-.308-.715-1.215.051-.223.051-.223 1.597 1.137 2.433 2.625 3.035 3.077.777-.561 1.43-.8861.875-1.085 2.375-.202 4.885.313 4.885 1.022 0 .185-.009 0.38.022.76.753-1.211 1.965-2.019 3.42-2.019 3.735 0 .433.81 4.035.81 9.09 0 .008.003.016.003.025-3.623 1.015-6.136 4.286-8.092 9.274.456.32.862.989.862 2.018 0 1.454-.014 2.619-.014 2.98 0 .327.213.716.825.583C20.565 22.092 24 17.581 24 12.297c0-6.627-5.373-12-12-12"></path></svg><span class="sr-only">GitHub</span></a>
-        <a href="https://x.com/Mohamed_4_Yahia" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2.25h3.11l-6.84 7.78 8.49 11.97h-6.19l-4.94-7.07-6.89 6.57H3.4l7.52-8.92-7.89-10.3h6.42l5.3 8.65 5.01-6.07zM15.89 20.23L4.93 21.8L12.37 12.47L15.89 20.23zM18.56 1.71L2.39 4.35L9.14 12.04L18.56 1.71z"/></svg><span class="sr-only">X / Twitter</span></a>
-      </nav>
-      
-      <!-- Resume download -->
-      <a href="/Mohamed_Yahia_Resume.pdf" download="Mohamed_Yahia_Resume.pdf" class="btn resume-btn">Download résumé (PDF)</a>
-    </nav>
-  </header>
+    </header>
 
-  <!-- Main Content -->
-  <main id="content" class="content" role="main">
+    <!-- Main Content -->
+    <main id="content" class="content" role="main">
     
     <!-- Hero -->
     <section id="hero" class="hero">
@@ -575,10 +649,6 @@
         <a href="https://kaggle.com/mido74-mo" target="_blank" rel="noopener noreferrer" class="ai-profile-link" aria-label="Kaggle">
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.21c.37.36.59.86.59 1.41zM13 6.5h-2c-.49 0-.9.41-.9.9v2.52c0 .82.73 1.44 1.53 1.43.54 0 1.02-.31 1.2-.77.14-.33.2-.69.2-1.06v-.4c.23.45.56.83.97 1.14.39.29.86.44 1.37.44.77 0 1.39-.57 1.39-1.27 0-.54-.38-1.01-.93-1.21-.56-.2-.99-.52-.99-1.09v-.8c0-.59.34-1.07.86-1.28l.84-.35c-.52-.81-1.13-1.5-1.83-1.94zm2.75 8.75c0 .41-.34.75-.75.75h-2.5v-1.5h2.5c.41 0 .75.34.75.75z"/></svg>
           <span>Kaggle</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="ai-profile-link" aria-label="Google Scholar">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-          <span>Google Scholar</span>
         </a>
       </nav>
       
@@ -714,7 +784,7 @@
     <section id="projects" class="section" aria-label="Projects" style="scroll-margin-top: 4rem;">
       <h2 class="section-header">Projects</h2>
       <div class="section-content">
-        <p class="prose" style="margin-bottom: 2rem;">Selected AI/ML projects with live demos, model cards, and source code. Each project includes problem definition, approach, data, infrastructure, and quantitative results.</p>
+        <p class="prose" style="margin-bottom: 1rem;">Selected AI/ML projects with live demos, model cards, and source code. Each project includes problem definition, approach, data, infrastructure, and quantitative results.</p>
         
         <ul class="project-grid" role="list">
           <!-- Project 1: RAG Chat System -->
@@ -831,8 +901,8 @@
                 
                 <div class="project-links">
                   <a href="https://github.com/mido74-mo/ml-deploy-platform" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository"><span aria-hidden="true">📦</span> GitHub Repo</a>
-                  <a href="https://grafana.mido74-mo.dev/d/ml-ops" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Grafana Dashboard"><span aria-hidden="true">📈</span> Live Dashboard</a>
-                  <a href="https://docs.mido74-mo.dev/ml-platform" target="_blank" rel="noopener" class="project-link">📖 Documentation</a>
+                  <a href="https://github.com/mido74-mo/ml-deploy-platform#dashboard" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Dashboard documentation"><span aria-hidden="true">📈</span> Dashboard Docs</a>
+                  <a href="https://github.com/mido74-mo/ml-deploy-platform/blob/main/docs/deployment.md" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Deployment documentation"><span aria-hidden="true">📖</span> Documentation</a>
                 </div>
                 
                 <div class="project-tags">
@@ -857,7 +927,7 @@
           <dt>Bachelor's Degree — Management Information Systems</dt>
           <dd>Faculty of Management and Technology Information Systems, Port Said University, Egypt · Graduated 2026</dd>
           <dt>Languages spoken</dt>
-          <dd>Arabic (native), English (fluent), Spanish</dd>
+          <dd>Arabic (native), English (fluent), Spanish (conversational), Turkish (working proficiency), Mandarin Chinese (studying)</dd>
         </dl>
       </div>
     </section>
@@ -866,7 +936,7 @@
     <section id="insights" class="section" aria-label="Insights" style="scroll-margin-top: 4rem;">
       <h2 class="section-header">Insights</h2>
       <div class="section-content">
-        <p class="prose" style="margin-bottom: 2rem;">Technical write-ups on LLMs, MLOps, and AI engineering. Short-form insights on papers, techniques, and production lessons learned.</p>
+        <p class="prose" style="margin-bottom: 1rem;">Technical write-ups on LLMs, MLOps, and AI engineering. Short-form insights on papers, techniques, and production lessons learned.</p>
         
         <ul class="blog-grid" role="list">
           <!-- Blog Post 1 -->
@@ -886,7 +956,7 @@
                   <span class="tech-tag">QLoRA</span>
                   <span class="tech-tag">Benchmarks</span>
                 </div>
-                <a href="https://mido74-mo.dev/blog/qlora-vs-full-finetune" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+                <a href="https://github.com/mido74-mo/blog-posts/blob/main/qlora-vs-full-finetune.md" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article on GitHub">Read more →</a>
               </div>
             </article>
           </li>
@@ -908,7 +978,7 @@
                   <span class="tech-tag">Production</span>
                   <span class="tech-tag">Evaluation</span>
                 </div>
-                <a href="https://mido74-mo.dev/blog/production-rag-lessons" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+                <a href="https://github.com/mido74-mo/blog-posts/blob/main/production-rag-lessons.md" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article on GitHub">Read more →</a>
               </div>
             </article>
           </li>
@@ -930,7 +1000,7 @@
                   <span class="tech-tag">Monitoring</span>
                   <span class="tech-tag">Kubernetes</span>
                 </div>
-                <a href="https://mido74-mo.dev/blog/ml-drift-detection" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article">Read more →</a>
+                <a href="https://github.com/mido74-mo/blog-posts/blob/main/ml-drift-detection.md" target="_blank" rel="noopener noreferrer" class="blog-link" aria-label="Read full article on GitHub">Read more →</a>
               </div>
             </article>
           </li>
@@ -942,7 +1012,8 @@
     <section id="contact" class="section" aria-label="Contact" style="scroll-margin-top: 4rem;">
       <h2 class="section-header">Contact</h2>
       <div class="section-content">
-        <form action="https://formspree.io/f/mgyrqgkb" method="post" class="contact-form">
+        <form action="https://formspree.io/f/mgyrqgkb" method="post" class="contact-form" novalidate>
+          <div id="form-status" class="sr-only" aria-live="polite"></div>
           <div class="form-field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -960,22 +1031,22 @@
         
         <nav class="contact-links" aria-label="Direct contact links">
           <a href="mailto:m.yahiafathy74@gmail.com" class="contact-link" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12.713l11.99-7.713v14H0L12 12.713zm0 1.594L0 16.287V6l12 7.307 12-7.307v10.287z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 4.75A2.75 2.75 0 0 1 2.75 2h18.5A2.75 2.75 0 0 1 24 4.75v14.5A2.75 2.75 0 0 1 21.25 22H2.75A2.75 2.75 0 0 1 0 19.25V4.75Zm2.75-.25a.75.75 0 0 0-.75.75v.25l9.25 6.5a1.25 1.25 0 0 0 1.5 0l9.25-6.5v-.25a.75.75 0 0 0-.75-.75H2.75Zm18.5 3.18-8.86 6.23a2.75 2.75 0 0 1-3.28 0L2.75 7.68v11.57c0 .41.34.75.75.75h18.5a.75.75 0 0 0 .75-.75V7.68Z"/></svg>
             <span>Email</span>
             <svg class="icon link-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M5 12l5-5m5 5l-5 5"/></svg>
           </a>
           <a href="https://linkedin.com/in/mohamed-yahia-476195296" target="_blank" rel="noopener" class="contact-link">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11.75 20h-3.25v-10h3.25v10zm-1.5-11.5c-1.029 0-1.857-.827-1.857-1.857s.827-1.857 1.857-1.857 1.857.827 1.857 1.857-.827 1.857-1.857 1.857zm13.25 11.5h-3.25v-4.5c0-1.074-.021-2.45-1.493-2.45-1.494 0-1.725 1.164-1.725 2.425v4.525h-3.25v-10h3.113v1.327h.043c.437-.829 1.503-1.694 3.097-1.694 3.321 0 3.931 2.184 3.931 5.025v6.842z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.85 9.95h2.18v8.05H5.85zm3.62 0h2.09v1.1h.03c.29-.56 1-1.14 2.06-1.14 2.2 0 2.6 1.45 2.6 3.34v6.75h-2.18v-6.3c0-1.5-.03-3.42-2.09-3.42-2.1 0-2.42 1.63-2.42 3.32v6.4H9.47V9.95Z"/></svg>
             <span>LinkedIn</span>
             <svg class="icon link-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M5 12l5-5m5 5l-5 5"/></svg>
           </a>
           <a href="https://github.com/mido74-mo" target="_blank" rel="noopener" class="contact-link">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.801 8.205 11.387.6.113.82-.265.82-.589 0-.293-.01-1.251-.016-2.26-3.338.737-4.044-1.615-4.044-1.615-.546-1.394-1.333-1.764-1.333-1.764-1.096-.757.085-.741.085-.741 1.215.088 1.85 1.253 1.85 1.253 1.076 1.843 2.817 1.313 3.505.996.107-.786.425-1.313.77-1.615-2.685-.308-5.51-.308-5.51-.308-.715-1.215.051-.223.051-.223 1.597 1.137 2.433 2.625 3.035 3.077.777-.561 1.43-.8861.875-1.085 2.375-.202 4.885.313 4.885 1.022 0 .185-.009 0.38.022.76.753-1.211 1.965-2.019 3.42-2.019 3.735 0 .433.81 4.035.81 9.09 0 .008.003.016.003.025-3.623 1.015-6.136 4.286-8.092 9.274.456.32.862.989.862 2.018 0 1.454-.014 2.619-.014 2.98 0 .327.213.716.825.583C20.565 22.092 24 17.581 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.49.99.11-.78.42-1.31.76-1.61-2.67-.31-5.47-.9-5.47-5.06 0-1.12.39-2.03 1.03-2.75-.1-.32-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.28 9.28 0 0 1 12 6.84c.85 0 1.71.11 2.51.33 1.9-1.3 2.74-1.03 2.74-1.03.55 1.41.2 2.39.1 2.71.64.72 1.03 1.63 1.03 2.75 0 4.17-2.81 4.74-5.49 5.05.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3Z"/></svg>
             <span>GitHub</span>
             <svg class="icon link-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M5 12l5-5m5 5l-5 5"/></svg>
           </a>
           <a href="https://x.com/Mohamed_4_Yahia" target="_blank" rel="noopener" class="contact-link">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2.25h3.11l-6.84 7.78 8.49 11.97h-6.19l-4.94-7.07-6.89 6.57H3.4l7.52-8.92-7.89-10.3h6.42l5.3 8.65 5.01-6.07zM15.89 20.23L4.93 21.8L12.37 12.47L15.89 20.23zM18.56 1.71L2.39 4.35L9.14 12.04L18.56 1.71z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.5h3.66l-8.02 9.17L24 22.5h-7.3l-5.71-8.35L4.6 22.5H.94l8.59-9.82L0 1.5h7.47l5.17 7.56L18.9 1.5Zm-1.28 18.7h2.03L7.44 3.08H5.31l12.31 17.12Z"/></svg>
             <span>X / Twitter</span>
             <svg class="icon link-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M5 12l5-5m5 5l-5 5"/></svg>
           </a>
@@ -983,6 +1054,7 @@
       </div>
     </section>
   </main>
+  </div>
   
   <footer class="footer" role="contentinfo">
     <p class="footer-text">Built with vanilla HTML, CSS & JavaScript. Deployed on <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a>.</p>
@@ -1013,8 +1085,54 @@
     }
 
     function toggleTheme() {
-      const newTheme = getStoredTheme() === 'dark' ? 'light' : 'dark';
+      const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
+    }
+
+    // Form handling with visual feedback
+    function handleFormSubmit(form) {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      const statusEl = document.getElementById('form-status');
+      
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      if (statusEl) statusEl.textContent = 'Sending your message...';
+      
+      // Use fetch to submit to Formspree and show real feedback
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          submitBtn.textContent = 'Sent!';
+          submitBtn.style.backgroundColor = '#64ffda';
+          submitBtn.style.color = '#0a192f';
+          if (statusEl) statusEl.textContent = 'Message sent successfully.';
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(() => {
+        submitBtn.textContent = 'Failed — try again';
+        submitBtn.style.backgroundColor = '#ff6b6b';
+        submitBtn.style.color = '#0a192f';
+        if (statusEl) statusEl.textContent = 'Failed to send. Please try again.';
+      })
+      .finally(() => {
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          submitBtn.style.backgroundColor = '';
+          submitBtn.style.color = '';
+          if (statusEl) statusEl.textContent = '';
+        }, 3000);
+      });
     }
 
     // Initialize theme
@@ -1026,6 +1144,15 @@
       themeToggle.setAttribute('aria-pressed', initialTheme === 'dark');
 
       themeToggle.addEventListener('click', toggleTheme);
+
+      // Form submission handling
+      const contactForm = document.querySelector('.contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          handleFormSubmit(this);
+        });
+      }
 
       // Highlight active nav link on scroll
       const sections = document.querySelectorAll('section[id]');
@@ -1068,6 +1195,22 @@
 
       // Also update on scroll for edge cases
       window.addEventListener('scroll', setActiveLink, { passive: true });
+
+      // Smooth scroll for nav links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // Update URL without jump
+              history.pushState(null, '', targetId);
+            }
+          }
+        });
+      });
 
       // Set dynamic copyright year
       const yearEl = document.getElementById('year');
